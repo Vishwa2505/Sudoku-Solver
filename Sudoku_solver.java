@@ -6,34 +6,23 @@ public class Sudoku_solver {
 	private static final int EMPTY=0;
 
 	public static void main(String[] args) {
-		int count=0;
-		//int[][] board=new int[SIZE][SIZE];
-		int [][] board= {{5,3,0,0,7,0,0,0,0},
-				 {6,0,0,1,9,5,0,0,0},
-				 {0,9,8,0,0,0,0,6,0},
-				 {8,0,0,0,6,0,0,0,3},
-				 {4,0,0,8,0,3,0,0,1},
-				 {7,0,0,0,2,0,0,0,6},
-				 {0,6,0,0,0,0,2,8,0},
-				 {0,0,0,4,1,9,0,0,5},
-				 {0,0,0,0,8,0,0,7,0}
-		};
-		//Scanner scanner=new Scanner(System.in);
+		int[][] board=new int[SIZE][SIZE];
+		Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter the Sudoku puzzle(9x9 grid):");
 		System.out.println("Enter 0 for empty cells.");
 		System.out.println("Enter numbers row by row, separated by spaces:");
 		
 		
-//		for(int i=0;i<SIZE;i++)
-//		{
-//			System.out.print("Row "+(i+1)+": ");
-//			String[] row=scanner.nextLine().trim().split("\\s");
-//			for(int j=0;j<SIZE;j++)
-//			{
-//				board[i][j]=Integer.parseInt(row[j]);
-//			}
-//		}
-//		
+		for(int i=0;i<SIZE;i++)
+		{
+			System.out.print("Row "+(i+1)+": ");
+			String[] row=scanner.nextLine().trim().split("\\s");
+			for(int j=0;j<SIZE;j++)
+			{
+				board[i][j]=Integer.parseInt(row[j]);
+			}
+		}
+		
 		System.out.println("\nInput Sudoku:\n");
 		printBoard(board);
 		
@@ -48,7 +37,7 @@ public class Sudoku_solver {
 		}
 		
 		System.out.println("Count="+count);
-		//scanner.close();
+		scanner.close();
 
 	
 	}
@@ -74,7 +63,6 @@ public class Sudoku_solver {
 	
 	private static boolean solveSudoku(int[][] board)
 	{
-		int count=0;
 		for(int row=0;row<SIZE;row++)
 		{
 			for(int col=0;col<SIZE;col++)
@@ -89,7 +77,6 @@ public class Sudoku_solver {
 							//Reccursivel solve 
 							if(solveSudoku(board))
 							{
-								count++;
 								return true;
 							}
 							else
@@ -103,7 +90,6 @@ public class Sudoku_solver {
 				//return false;
 			}
 		}
-		System.out.println("Count: "+count);
 		return true;
 	}
 	

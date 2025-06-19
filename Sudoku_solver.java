@@ -21,8 +21,7 @@ public class Sudoku_solver {
 			{
 				board[i][j]=Integer.parseInt(row[j]);
 			}
-		}
-		
+		}		
 		System.out.println("\nInput Sudoku:\n");
 		printBoard(board);
 		
@@ -35,11 +34,7 @@ public class Sudoku_solver {
 		{
 			System.out.println("\nNo Solutionn exists for this Sudoku puzzle.");
 		}
-		
-		System.out.println("Count="+count);
-		scanner.close();
-
-	
+		scanner.close();	
 	}
 	private static void printBoard(int[][] board)
 	{
